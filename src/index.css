@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+
+/* Reset để nền phủ toàn màn hình */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Xóa cấu hình mặc định của Vite (max-width/padding/margin) */
+#root {
+  width: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
