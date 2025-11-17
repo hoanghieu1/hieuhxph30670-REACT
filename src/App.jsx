@@ -1,26 +1,22 @@
-function App() {
+import Header from "./components/Header";
+import MainSection from "./components/MainSection";
+import Footer from "./components/Footer";
+
+export default function App() {
+  const tours = [
+    { id: 1, name: "Tour Bali", description: "du lịch bali siêu siêu đẹp",       img: "./bali.webp" },
+    { id: 2, name: "Tour Singapore", description: "Singapore đất nước siêu phát triển", img: "./sing.webp" },
+    { id: 3, name: "Tour Japan", description: "Nhật bản xứ sở hoa anh đào",    img: "./nhatban.webp" },
+    { id: 4, name: "Tour Việt Nam", description:"Việt Nam quê hương ta đẹp lắm",   img: "./vietnam.webp" },
+    { id: 5, name: "Tour Mỹ", description: "Đế quốc Mỹ hùng mạnh đẹp đẽ",  img: "./my.webp" },
+    { id: 6, name: "Tour Hàn Quốc", description: "Kim chi là món ăn siêu hấp dẫn", img: "./hanquoc.webp" },
+  ];
+
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
-      <div className="text-center px-4">
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 drop-shadow-lg animate-bounce">
-          React + Vite + Tailwind 🎯
-        </h1>
-
-        <p className="text-lg mb-6 opacity-90">
-          Hoàng Xuân Hiếu – HIEUHXPH30670
-        </p>
-
-        <button className="px-8 py-3 bg-white text-indigo-600 font-semibold rounded-xl shadow-md hover:bg-gray-200 hover:scale-105 transition transform duration-200">
-          Bắt đầu học Frontend!
-        </button>
-
-        <p className="mt-8 text-sm text-gray-200 opacity-80">
-          Tailwind hoạt động tốt nếu bạn thấy nền{" "}
-          <span className="font-bold">tím-hồng 💜</span>
-        </p>
-      </div>
+    <div className="min-h-screen bg-gray-200 flex flex-col">
+      <Header />
+      <MainSection tours={tours} />
+      <Footer />
     </div>
   );
 }
-
-export default App;
