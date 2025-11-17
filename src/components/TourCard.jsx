@@ -21,7 +21,16 @@ export default function TourCard({ tour }) {
       />
       <div className="w-full rounded-md px-4 py-3">
         <p className="text-base font-semibold text-slate-800">{tour.name}</p>
-        <p className="text-sm text-slate-800 text-center">{tour.description}</p>
+        <div className="mt-2 flex items-center justify-between text-sm text-slate-600">
+          <div className="flex items-center gap-3">
+            <span>📍</span>
+            <span>{tour.location}</span>
+            <span>⏱️</span>
+            <span>{tour.duration}</span>
+          </div>
+          <div className="font-semibold text-slate-800">{tour.price}</div>
+        </div>
+        <p className="text-sm text-slate-800 mt-3">{tour.description}</p>
       </div>
       <div className="w-full flex gap-3 mt-2">
         <Button label="Xem Thêm" variant="secondary" onClick={handleViewMore} />
