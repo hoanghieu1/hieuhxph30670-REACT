@@ -8,7 +8,6 @@ export default function ToursPage({ tours }) {
   const { search } = useLocation();
 
   useEffect(() => {
-    // read ?loc=... from URL and set it as initial filter
     const params = new URLSearchParams(search);
     const loc = params.get("loc");
     if (loc) {
@@ -17,7 +16,7 @@ export default function ToursPage({ tours }) {
   }, [search]);
 
   const locations = useMemo(() => {
-    return Array.from(new Set(tours.map((t) => t.location)));
+    return Array.from(new Set((tours || []).map((t) => t.location)));
   }, [tours]);
 
   const toggleFilter = (loc) => {
@@ -25,12 +24,12 @@ export default function ToursPage({ tours }) {
   };
 
   const visible = useMemo(() => {
-    return tours.filter((t) => {
+    return (tours || []).filter((t) => {
       const q = query.trim().toLowerCase();
       const matchesQuery =
         q === "" ||
-        t.name.toLowerCase().includes(q) ||
-        t.location.toLowerCase().includes(q) ||
+        (t.name && t.name.toLowerCase().includes(q)) ||
+        (t.location && t.location.toLowerCase().includes(q)) ||
         (t.description && t.description.toLowerCase().includes(q));
 
       const matchesFilter = filters.length === 0 || filters.includes(t.location);

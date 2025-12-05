@@ -1,11 +1,63 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Button from "../components/Button";
 
 export default function DetailPage({ tours }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const tour = tours.find(t => t.id === parseInt(id));
+  // debug: log incoming props to help diagnose missing tour
+  console.log('DetailPage render', { id, tours });
+
+  const parentTour = (tours || []).find((t) => t.id === parseInt(id));
+
+  const [localTour, setLocalTour] = useState(null);
+  const [localLoading, setLocalLoading] = useState(false);
+  const [localError, setLocalError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    if (!parentTour) {
+      setLocalLoading(true);
+      axios
+        .get(`http://localhost:3001/tours/${id}`)
+        .then((res) => {
+          if (!mounted) return;
+          const t = res.data;
+          if (t) {
+            setLocalTour({
+              ...t,
+              id: typeof t.id === "string" ? Number(t.id) : t.id,
+              img: t.image || t.img || "/placeholder.png",
+              price: typeof t.price === "number" ? t.price.toLocaleString("vi-VN") + " VND" : (t.price || ""),
+              location: t.destination || t.location || "",
+              details: t.details || t.description || "",
+            });
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          if (mounted) setLocalError("Không tải được tour từ API");
+        })
+        .finally(() => {
+          if (mounted) setLocalLoading(false);
+        });
+    }
+
+    return () => (mounted = false);
+  }, [id, parentTour]);
+
+  const tour = parentTour || localTour;
+
+  if (localLoading) {
+    return (
+      <div className="min-h-screen bg-gray-200 flex items-center justify-center">
+        <div className="text-center text-slate-700">Đang tải chi tiết tour...</div>
+      </div>
+    );
+  }
 
   if (!tour) {
     return (
@@ -13,6 +65,7 @@ export default function DetailPage({ tours }) {
         <div className="flex-1 flex justify-center items-center">
           <div className="text-center">
             <p className="text-2xl font-bold text-slate-800">Tour không tìm thấy</p>
+            {localError && <p className="text-red-500">{localError}</p>}
             <Button label="Quay lại" onClick={() => navigate("/")} />
           </div>
         </div>
@@ -26,7 +79,7 @@ export default function DetailPage({ tours }) {
         <button onClick={() => navigate("/")} className="mb-6 text-blue-500 hover:text-blue-700 font-semibold">
           ← Quay lại
         </button>
-        
+
         <img
           src={tour.img}
           alt={tour.name}

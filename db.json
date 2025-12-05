@@ -1,0 +1,120 @@
+{
+  "tours": [
+    {
+      "name": "Hà Nội - Sapa 3N2D",
+      "slug": "13",
+      "destination": "Sapa",
+      "price": 2500000,
+      "available": 15,
+      "image": "https://picsum.photos/400/300?random=1",
+      "description": "Khám phá Sapa với những ruộng bậc thang tuyệt đẹp",
+      "category": "domestic",
+      "active": false,
+      "id": "1"
+    },
+    {
+      "name": "Đà Lạt 4N3D",
+      "slug": "da-lat4n3d",
+      "destination": "Đà Lạt",
+      "price": 3200000,
+      "available": 10,
+      "image": "https://picsum.photos/400/300?random=3",
+      "description": "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm",
+      "category": "international",
+      "active": false,
+      "id": "3"
+    },
+    {
+      "name": "Lạng  Sơn",
+      "slug": "lang-son",
+      "destination": "Mỹ Sơn",
+      "price": 500000,
+      "available": 5,
+      "image": "https://picsum.photos/400/300?random=3",
+      "description": "du lịch tránh lạnh",
+      "category": "domestic",
+      "active": true,
+      "id": "4"
+    },
+    {
+      "name": "Lộc Bình",
+      "slug": "25",
+      "destination": "mẫu sơn",
+      "price": 1000000,
+      "available": 0,
+      "image": "https://picsum.photos/400/300?random=3",
+      "description": "du lịch đỉnh mẫu sơn",
+      "category": "tour nội địa",
+      "active": true,
+      "id": "8"
+    }
+  ],
+  "destinations": [
+    {
+      "id": "1",
+      "name": "Sapa",
+      "icon": "🏔️",
+      "description": "Thiên đường núi rừng Tây Bắc"
+    },
+    {
+      "id": "2",
+      "name": "Hạ Long",
+      "icon": "🌊",
+      "description": "Kỳ quan thiên nhiên thế giới"
+    },
+    {
+      "id": "3",
+      "name": "Đà Lạt",
+      "icon": "🌺",
+      "description": "Thành phố ngàn hoa"
+    }
+  ],
+  "bookings": [],
+  "users": [
+    {
+      "id": "db0d",
+      "email": "hieu2003@gmail.com",
+      "password": "hieukoidzno1st"
+    },
+    {
+      "id": "efd8",
+      "email": "hoangxuanhieu203@gmail.com",
+      "password": "hieukoidzno1st"
+    },
+    {
+      "id": "0c11",
+      "email": "hoanghieu203@gmail.com",
+      "password": "hoanghieu203"
+    },
+    {
+      "id": "9497",
+      "email": "hoanghieu203@gmail.com",
+      "password": "hoanghieu203"
+    },
+    {
+      "id": "ad33",
+      "email": "hoanghieu203@gmail.com",
+      "password": "hoanghieu203"
+    },
+    {
+      "email": "hoanghieu2023@gmail.com",
+      "password": "$2a$10$d.fibCAE88Y1H4jHYP0W/eSA8/q7N5N7sMC0b.5qOuzPQ3RWOR0KS",
+      "id": "VGE-3h-"
+    },
+    {
+      "email": "hoanghieu2083@gmail.com",
+      "password": "$2a$10$rYrtW7e3SRdn6c35N7nvdOLRLqdDkrzTqNbSOsWKcBVMVngCy/h8.",
+      "id": "q7Umftg"
+    },
+    {
+      "email": "admin123@gmail.com",
+      "password": "$2a$10$76u22M.m6K00x94fIvG8gOp4koNRfubnXWtDTbhhzGPanV.tqRlH2",
+      "id": "OPgo1zh"
+    },
+    {
+      "email": "admin234@gmail.com",
+      "password": "$2a$10$P.3CQRsek1IH3DlFjDTS0.dPkDIlIp5gb4ghANgP8xRaJq2JKq932",
+      "id": "08v0OOv"
+    }
+  ]
+}
